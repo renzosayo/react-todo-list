@@ -1,0 +1,214 @@
+*,
+*::after,
+*::before {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--primary-color);
+}
+
+:root {
+  --primary-color: #1a1a1a;
+  --text-color: white;
+}
+
+#root {
+  display: grid;
+  grid-template: auto 1fr auto / auto 1fr;
+  justify-content: space-between;
+  height: 100dvh;
+}
+
+.title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.container {
+  max-width: 500px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 24px;
+  min-height: 80px;
+  background-color: var(--primary-color);
+  grid-column: span 2;
+}
+
+.header__title {
+  color: var(--text-color);
+}
+
+.btn {
+  padding: 10px 16px;
+  border: 3px solid gray;
+  border-radius: 6px;
+  transition: border-color 0.1s ease-in-out;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn:hover {
+  border-color: var(--primary-color);
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px;
+  background-color: var(--primary-color);
+  grid-column: span 2;
+}
+
+.footer__text {
+  color: var(--text-color);
+  font-size: 18px;
+}
+
+.footer__text__link {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.footer__text__link:hover {
+  text-decoration: underline;
+}
+
+.sidebar {
+  width: 200px;
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  background-color: aliceblue;
+  padding: 24px;
+}
+
+.section {
+  padding: 24px;
+}
+
+.view-todo__title {
+  margin-bottom: 16px;
+}
+
+.view-todo__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.view-todo__add {
+  margin-left: 3px;
+}
+
+.todo {
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  gap: 6px;
+  position: relative;
+}
+
+.todo__title {
+  font-size: 1.5rem;
+}
+
+.todo__checkbox {
+  position: relative;
+  height: 2rem;
+  width: 2rem;
+  appearance: none;
+  border: 3px solid gray;
+  border-radius: 6px;
+  transition: border-color 0.1s ease-in-out;
+}
+
+.todo__checkbox:hover {
+  border-color: var(--primary-color);
+}
+
+.todo__checkbox:checked {
+  background-color: gray;
+  transition: background-color 0.1s ease-in-out;
+}
+
+.todo__checkbox:checked::before {
+  position: absolute;
+  content: " ";
+  border-right: 4px solid white;
+  border-bottom: 4px solid white;
+  height: 1.4rem;
+  width: 0.8rem;
+  left: 23%;
+  top: 5%;
+  transform: rotate(45deg);
+}
+
+.todo__checkbox:checked:hover {
+  background-color: var(--primary-color);
+}
+
+.todo__remove {
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background-color: var(--text-color);
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease-in-out;
+  margin-left: 10px;
+}
+
+.todo__remove::before {
+  content: "\00d7";
+  color: red;
+  font-weight: 800;
+}
+
+.todo__remove:hover {
+  transform: scale(1.5);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 3px;
+  gap: 6px;
+}
+
+.form-item {
+  min-height: 2rem;
+  padding: 6px;
+  border: 3px solid gray;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  transition: border-color 0.1s ease-in-out;
+}
+
+.form-item:hover {
+  border-color: var(--primary-color);
+}
+
+.form__submit {
+  margin-top: 40px;
+}
+
+.projects {
+  list-style-type: none;
+  margin: 16px 0px;
+}
+
+.projects__item {
+  font-size: 1.4rem;
+  margin-bottom: 3px;
+  cursor: pointer;
+}
+
+.projects__item:hover {
+  text-decoration: underline;
+}
