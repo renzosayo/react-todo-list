@@ -20,6 +20,10 @@
   height: 100dvh;
 }
 
+.strike {
+  text-decoration: line-through;
+}
+
 .title {
   font-size: 1.8rem;
   margin-bottom: 20px;

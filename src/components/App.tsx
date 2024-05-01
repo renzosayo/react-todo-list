@@ -46,7 +46,7 @@ export const ContextProvider = createContext({} as IContextProps);
 
 function App() {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
-  const [selected, setSelected] = useState("My Projects");
+  const [selected, setSelected] = useState("My Project");
 
   return (
     <>

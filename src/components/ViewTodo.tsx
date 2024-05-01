@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ContextProvider } from "./App";
 import { ACTIONS } from "../utilities/actions";
 import { Todo } from "../utilities/types";
@@ -7,7 +7,6 @@ import { Todo } from "../utilities/types";
 export default function ViewTodo() {
   const navigate = useNavigate();
   const { state, selected, dispatch } = useContext(ContextProvider);
-  console.log(state, selected);
   const [project] = state.filter((project) => project.name === selected);
 
   const handleRemove = (project: string, todo: Todo) => {
@@ -17,6 +16,17 @@ export default function ViewTodo() {
     });
   };
 
+  const handleChange = (project: string, todo: Todo) => {
+    dispatch({
+      type: ACTIONS.EDIT_TODO,
+      payload: { projectName: project, todo },
+    });
+  };
+
+  useEffect(() => {
+    console.log(state);
+  });
+
   return (
     <div className="view-todo section">
       <h1 className="view-todo__title title">{project.name}</h1>
@@ -24,8 +34,15 @@ export default function ViewTodo() {
         {project.todos.map((todo) => {
           return (
             <li className="todo" key={todo.title}>
-              <input className="todo__checkbox" type="checkbox" />
-              <p className="todo__title">{todo.title}</p>
+              <input
+                className={"todo__checkbox"}
+                type="checkbox"
+                checked={todo.completed}
+                onChange={() => handleChange(project.name, todo)}
+              />
+              <p className={"todo__title" + (todo.completed ? " strike" : "")}>
+                {todo.title}
+              </p>
               <button
                 className="todo__remove"
                 onClick={() => handleRemove(project.name, todo)}

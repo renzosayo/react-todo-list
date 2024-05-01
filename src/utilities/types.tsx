@@ -3,6 +3,7 @@ export type Todo = {
   description: string;
   dueDate: string;
   priority: Priority;
+  completed: boolean;
 };
 
 export type Priority = "Low" | "Normal" | "High";
