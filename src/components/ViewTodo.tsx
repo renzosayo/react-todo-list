@@ -23,10 +23,6 @@ export default function ViewTodo() {
     });
   };
 
-  useEffect(() => {
-    console.log(state);
-  });
-
   return (
     <div className="view-todo section">
       <h1 className="view-todo__title title">{project.name}</h1>
@@ -36,7 +32,7 @@ export default function ViewTodo() {
             return (
               <li className="todo" key={todo.title}>
                 <input
-                  className={"todo__checkbox"}
+                  className="todo__checkbox"
                   type="checkbox"
                   checked={todo.completed}
                   onChange={() => handleChange(project.name, todo)}
@@ -45,6 +41,18 @@ export default function ViewTodo() {
                   className={"todo__title" + (todo.completed ? " strike" : " ")}
                 >
                   {todo.title}
+                </p>
+                <p
+                  className={
+                    "todo__priority " +
+                    (todo.priority === "High"
+                      ? "high-priority"
+                      : todo.priority === "Normal"
+                      ? "normal-priority"
+                      : "low-priority")
+                  }
+                >
+                  {todo.priority}
                 </p>
                 <button
                   className="todo__remove"

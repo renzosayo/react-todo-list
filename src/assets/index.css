@@ -134,6 +134,7 @@
   border: 3px solid gray;
   border-radius: 6px;
   transition: border-color 0.1s ease-in-out;
+  cursor: pointer;
 }
 
 .todo__checkbox:hover {
@@ -180,6 +181,26 @@
 
 .todo__remove:hover {
   transform: scale(1.5);
+}
+
+.todo__priority {
+  padding: 6px;
+  margin-left: 10px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.high-priority {
+  background-color: rgb(255, 88, 88);
+}
+
+.normal-priority {
+  background-color: rgb(255, 179, 39);
+}
+
+.low-priority {
+  background-color: rgb(134, 201, 33);
 }
 
 .form {

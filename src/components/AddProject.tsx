@@ -4,13 +4,14 @@ import { ACTIONS } from "../utilities/actions";
 import { useNavigate } from "react-router-dom";
 
 export function AddProject() {
-  const { dispatch } = useContext(ContextProvider);
+  const { setSelected, dispatch } = useContext(ContextProvider);
   const [projectName, setProjectName] = useState("");
   const navigate = useNavigate();
 
   function handleClick(e: React.MouseEvent) {
     e.preventDefault();
     dispatch({ type: ACTIONS.ADD_PROJECT, payload: { projectName } });
+    setSelected(projectName);
     navigate("/");
   }
 
