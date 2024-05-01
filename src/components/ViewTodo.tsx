@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { ContextProvider } from "./App";
 import { ACTIONS } from "../utilities/actions";
 import { Todo } from "../utilities/types";
@@ -18,9 +18,10 @@ export default function ViewTodo() {
 
   const handleChange = (project: string, todo: Todo) => {
     dispatch({
-      type: ACTIONS.EDIT_TODO,
+      type: ACTIONS.CHANGE_PRIORITY,
       payload: { projectName: project, todo },
     });
+    navigate("/");
   };
 
   return (
@@ -39,6 +40,11 @@ export default function ViewTodo() {
                 />
                 <p
                   className={"todo__title" + (todo.completed ? " strike" : " ")}
+                  onClick={() =>
+                    navigate("/todo-details", {
+                      state: { projectName: project.name, todo },
+                    })
+                  }
                 >
                   {todo.title}
                 </p>

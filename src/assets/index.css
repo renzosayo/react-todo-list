@@ -24,6 +24,11 @@
   text-decoration: line-through;
 }
 
+.disabled {
+  background-color: lightgray;
+  pointer-events: none;
+}
+
 .title {
   font-size: 1.8rem;
   margin-bottom: 20px;
@@ -118,12 +123,17 @@
   display: flex;
   align-items: center;
   padding: 3px;
-  gap: 6px;
+  gap: 10px;
   position: relative;
 }
 
 .todo__title {
   font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.todo__title:hover {
+  text-decoration: underline;
 }
 
 .todo__checkbox {

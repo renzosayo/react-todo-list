@@ -11,8 +11,9 @@ export default function AddTodo() {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
-    dueDate: Date().toString(),
+    dueDate: new Date().toISOString().split("T")[0],
     priority: "Normal",
+    completed: false,
   } as Todo);
 
   const handleAdd = (projectName: string, todo: Todo) => {
