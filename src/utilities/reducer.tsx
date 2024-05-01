@@ -72,6 +72,9 @@ export function reducer(state: Project[], action?: Action): Project[] {
         }
         return project;
       });
+    case ACTIONS.ADD_PROJECT:
+      if (!action.payload?.projectName) return state;
+      return [...state, { name: action.payload?.projectName, todos: [] }];
     default:
       return state;
   }

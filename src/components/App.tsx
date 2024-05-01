@@ -8,6 +8,8 @@ import Sidebar from "./Sidebar";
 import { createContext, useReducer, useState } from "react";
 import { INITIAL_STATE, reducer } from "../utilities/reducer";
 import { IContextProps } from "../utilities/types";
+import TodoDetails from "./TodoDetails";
+import { AddProject } from "./AddProject";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,14 @@ const router = createBrowserRouter([
       {
         path: "/add-todo",
         element: <AddTodo />,
+      },
+      {
+        path: "/todo-details",
+        element: <TodoDetails />,
+      },
+      {
+        path: "/add-project",
+        element: <AddProject />,
       },
     ],
   },
