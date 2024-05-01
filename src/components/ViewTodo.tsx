@@ -30,27 +30,36 @@ export default function ViewTodo() {
   return (
     <div className="view-todo section">
       <h1 className="view-todo__title title">{project.name}</h1>
-      <ul className="view-todo__list">
-        {project.todos.map((todo) => {
-          return (
-            <li className="todo" key={todo.title}>
-              <input
-                className={"todo__checkbox"}
-                type="checkbox"
-                checked={todo.completed}
-                onChange={() => handleChange(project.name, todo)}
-              />
-              <p className={"todo__title" + (todo.completed ? " strike" : "")}>
-                {todo.title}
-              </p>
-              <button
-                className="todo__remove"
-                onClick={() => handleRemove(project.name, todo)}
-              ></button>
-            </li>
-          );
-        })}
-      </ul>
+      {project.todos.length >= 1 ? (
+        <ul className="view-todo__list">
+          {project.todos.map((todo) => {
+            return (
+              <li className="todo" key={todo.title}>
+                <input
+                  className={"todo__checkbox"}
+                  type="checkbox"
+                  checked={todo.completed}
+                  onChange={() => handleChange(project.name, todo)}
+                />
+                <p
+                  className={"todo__title" + (todo.completed ? " strike" : " ")}
+                >
+                  {todo.title}
+                </p>
+                <button
+                  className="todo__remove"
+                  onClick={() => handleRemove(project.name, todo)}
+                ></button>
+              </li>
+            );
+          })}
+        </ul>
+      ) : (
+        <p className="view-todo__empty">
+          This project is empty. Click 'Add todo...' to start adding your todo
+          items.
+        </p>
+      )}
       <button
         className="view-todo__add btn"
         onClick={() => navigate("/add-todo", { state: project })}
